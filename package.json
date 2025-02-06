@@ -5,16 +5,16 @@
   "main": "index.js",
   "scripts": {
     "build": "next build",
-    "start": "node index.js"
+    "start": "next start"  // Changed to use Next.js's start script
   },
   "dependencies": {
     "express": "^4.21.2",
-    "next": "^15.1.6",
+    "next": "^12.0.0",  // Updated Next.js version
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "engines": {
-    "node": "4.0.0"
+    "node": ">=14.0.0"  // Updated Node.js version to be compatible
   },
   "repository": {
     "type": "git",

@@ -1,13 +1,18 @@
-var express = require('express')
-var app = express()
 
-app.set('port', (process.env.PORT || 5000))
-app.use(express.static(__dirname + '/public'))
+const express = require('express');
+const path = require('path');
 
-app.get('/', function(request, response) {
-  response.send('Hello World!')
-})
+const app = express();
+const PORT = process.env.PORT || 3000; // Default port to 3000 if not set
 
-app.listen(app.get('port'), function() {
-  console.log("Node app is running at localhost:" + app.get('port'))
-})
+// Serve static files from 'public' directory
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/', function (req, res) {
+  res.send('Hello, Dockerized Node.js App!');
+});
+
+// Start the server
+app.listen(PORT, function () {
+  console.log(`Node app is running on port ${PORT}`);
+});

@@ -1,0 +1,38 @@
+name: CI/CD for Website
+
+on:
+  push:
+    branches:
+      - main  # Trigger when pushing to the main branch
+  pull_request:
+    branches:
+      - main  # Trigger when a pull request targets the main branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js (if you're using it)
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install dependencies (if using npm/yarn)
+      run: |
+        npm install  # If using npm
+        # or yarn install  # If using yarn
+
+    - name: Build project (if applicable)
+      run: |
+        npm run build  # or build your project here
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./public  # Directory where the build output is located (change according to your project)
+

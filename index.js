@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000; // Default port to 3000 if not set
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', function (req, res) {
-  res.send('Hello, Dockerized Node.js App!  I am techdock labs');
+  res.send('Hello, Dockerized Node.js App!  I am techdock labs 1234');
 });
 
 // Start the server
